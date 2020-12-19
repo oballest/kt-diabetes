@@ -1,0 +1,27 @@
+{  
+    "lookup":"default-stateless-ksession",
+    "commands":[  
+       {  
+          "insert":{  
+             "object":{  
+                "com.myspace.rhdm7_keralty.Paciente":{  
+                   "preprandial": 90,
+                   "postprandial": 130,
+                   "codEcv" : "I630",
+                   "codHta" : "I10X"
+                }
+             },
+             "out-identifier":"ptog"
+          }
+       },
+       {  
+          "start-process":{  
+             "processId":"rhdm7_keralty.EvaluacionPtog",
+             "parameter":[  
+ 
+             ],
+             "out-identifier":null
+          }
+       }
+    ]
+ }

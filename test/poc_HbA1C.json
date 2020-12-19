@@ -1,0 +1,26 @@
+{  
+    "lookup":"default-stateless-ksession",
+    "commands":[  
+       {  
+          "insert":{  
+             "object":{  
+                "com.myspace.rhdm7_keralty.Paciente":{  
+                   "hba1c": 201,
+                   "codEcv" : "I630",
+                   "codHta" : "I10X"
+                }
+             },
+             "out-identifier":"HbA1C"
+          }
+       },
+       {  
+          "start-process":{  
+             "processId":"rhdm7_keralty.EvaluacionTamizaje",
+             "parameter":[  
+ 
+             ],
+             "out-identifier":null
+          }
+       }
+    ]
+ }

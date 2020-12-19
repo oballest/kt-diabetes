@@ -1,0 +1,29 @@
+{  
+    "lookup":"default-stateless-ksession",
+    "commands":[  
+       {  
+          "insert":{  
+             "object":{  
+                "com.myspace.rhdm7_keralty.Paciente":{  
+                   "hba1c": 7.5,
+                   "contraindicacionesMetformina": false,
+                   "fallaCardiaca" : "I509",
+                   "codComorbilidades": "I630",
+                   "rac" : "301",
+                   "contraindicacionesEcglt2": false
+                }
+             },
+             "out-identifier":"diabetes"
+          }
+       },
+       {  
+          "start-process":{  
+             "processId":"rhdm7_keralty.EvaluacionDiabetes",
+             "parameter":[  
+ 
+             ],
+             "out-identifier":null
+          }
+       }
+    ]
+ }

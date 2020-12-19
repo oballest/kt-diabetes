@@ -1,0 +1,28 @@
+{  
+    "lookup":"default-stateless-ksession",
+    "commands":[  
+       {  
+          "insert":{  
+             "object":{  
+                "com.myspace.rhdm7_keralty.Paciente":{  
+                   "glicemia": 50,
+                   "codEcv" : "I630",
+                   "codHta" : "I10X",
+                   "segundaPrueba" : false
+                   
+                }
+             },
+             "out-identifier":"glicemiaA"
+          }
+       },
+       {  
+          "start-process":{  
+             "processId":"rhdm7_keralty.EvaluacionGlicemiaAyunas",
+             "parameter":[  
+ 
+             ],
+             "out-identifier":null
+          }
+       }
+    ]
+ }

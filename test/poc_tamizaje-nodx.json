@@ -1,0 +1,39 @@
+{  
+    "lookup":"default-stateless-ksession",
+    "commands":[  
+       {  
+          "insert":{  
+             "object":{  
+                "com.myspace.rhdm7_keralty.Paciente":{  
+                   "edad":20,
+                   "glucosaEnSuero":true,
+                   "imc":30,
+                   "genero": "mujer",
+                   "perimetroAbdominal": 60,
+                   "herenciaDiabetesGradoUno": false,
+                   "herenciaDiabetesGradoDos": false,
+                   "hipertensionSistolico": 40,
+                   "hipertensionDiastolico": 20,
+                   "medicamentosHipertension": false,
+                   "hdl": 55,
+                   "trigliceridos": 50,
+                   "sedentarismo": false,
+                   "tieneDiabetesGestacional": false,
+                   "hijosMasCuatroKgAlNacer": false,
+                   "findrisk": 6
+                }
+             },
+             "out-identifier":"revision"
+          }
+       },
+       {  
+          "start-process":{  
+             "processId":"rhdm7_keralty.EvaluacionTamizaje",
+             "parameter":[  
+ 
+             ],
+             "out-identifier":null
+          }
+       }
+    ]
+ }

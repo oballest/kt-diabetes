@@ -1,0 +1,10 @@
+package com.myspace.rhdm7_keralty;
+rule "validaMensaje"
+	dialect "mvel"
+	ruleflow-group "validaMensaje"
+    when
+    paciente : Paciente()
+    then
+    modify( paciente ) { setMensaje("El paciente debe hacerse tamizaje en 5 años") }
+end
+

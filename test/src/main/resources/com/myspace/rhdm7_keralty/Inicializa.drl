@@ -1,0 +1,49 @@
+package com.myspace.rhdm7_keralty;
+import com.myspace.rhdm7_keralty.Paciente;
+import java.util.ArrayList;
+import java.util.List;
+
+rule "Establecer datos iniciales de un Paciente"
+    dialect "mvel"
+    ruleflow-group "initialize-rules"
+    no-loop true
+    when
+        paciente : Paciente( )
+    then
+        System.out.println("Rule fired : [" + drools.getRule().getName()+"]");
+        paciente.setCedula("123456789");
+        String paciente.codCardiovascular= new String[] {"I210", "I211", "I212", "I213", "I214", "I219", "I220", "I221", "I228", "I229", "I230", "I231", "I232", "I233", "I234", "I235", "I238", "I240", "I250", "I251", "I252", "I702", "I708", "I709", "I739"};
+        String paciente.codEcv= new String[] {"I630", "I631", "I632", "I633", "I634", "I635", "I638", "I639", "I653", "I658", "I659", "I660", "I661", "I662", "I664", "I668", "I669", "I672", "I693", "I698"};
+        String paciente.codFallaCardiaca= new String[] {"I500", "I509", "I518", "Y840"};
+        String paciente.codHta= new String[] {"I10X", "I110", "I119", "I120", "I129", "I130", "I131", "I132", "I139", "I150", "I151"};
+        String paciente.codDiabetesGestacional= new String[] {"O240", "O241", "O242", "O243", "O244", "O249", "P700", "P701", "P702"};
+        paciente.setFindrisk(0);
+        modify( paciente ) { setTieneEcv(false) }
+        modify( paciente ) { setTieneHta(false) }
+        modify( paciente ) { setTieneFallaCardiaca(false) }
+        modify( paciente ) { setTieneComorbilidades(false) }
+        paciente.setMensaje("");
+    end
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

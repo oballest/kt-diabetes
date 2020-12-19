@@ -1,0 +1,11 @@
+package com.myspace.rhdm7_keralty;
+
+import java.lang.Number;
+
+rule "TamizajeGR"
+	dialect "mvel"
+	when
+		Un paciente mayor de 45 años y el examen de glucosa en suero es false o el imc es menor a 25 o sea mujer y tenga perimetro abdominal mayor a 90 o sea hombre y tenga perimetro abdominal mayor a 94 o tenga herencia de diabetes grado uno true y grado dos true o tenga sistole mayor a 140 diastole mayor a 90 o medicamentos de hipertension en true o tenga colesterol menor a 35 o trigliseridos mayor a 250 o sea mujer y tenga ovario poliquistico en E282 o tenga sedentarismo igual a true o tenga hijos con mas de 4k al nacer true o tenga acantosis nigricans igual a L83X o tenga puntaje findrisk mayor o igual a 12
+	then
+		Se recomienda que El paciente debe pasar a diagnostico
+end

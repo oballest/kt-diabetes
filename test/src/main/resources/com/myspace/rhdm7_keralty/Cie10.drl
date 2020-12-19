@@ -1,0 +1,166 @@
+package com.myspace.rhdm7_keralty;
+import com.myspace.rhdm7_keralty.Paciente;
+
+    rule "Validar enfermedades cardiovasculares"
+    dialect "mvel"
+    ruleflow-group "valida-cardiovasculares"
+    no-loop true
+    when
+        paciente : Paciente( )
+        $codigo:Paciente($ccv1: codCardiovascular contains "I210" || 
+        $ccv2: codCardiovascular contains "I211" || 
+        $ccv3: codCardiovascular contains "I212" || 
+        $ccv4: codCardiovascular contains "I213" || 
+        $ccv5: codCardiovascular contains "I214" || 
+        $ccv6: codCardiovascular contains "I219" || 
+        $ccv7: codCardiovascular contains "I220" || 
+        $ccv8: codCardiovascular contains "I221" || 
+        $ccv9: codCardiovascular contains "I228" || 
+        $ccv10: codCardiovascular contains "I229" || 
+        $ccv11: codCardiovascular contains "I230" || 
+        $ccv12: codCardiovascular contains "I231" || 
+        $ccv13: codCardiovascular contains "I232" || 
+        $ccv14: codCardiovascular contains "I233" || 
+        $ccv15: codCardiovascular contains "I234" || 
+        $ccv16: codCardiovascular contains "I235" || 
+        $ccv17: codCardiovascular contains "I238" || 
+        $ccv18: codCardiovascular contains "I240" || 
+        $ccv19: codCardiovascular contains "I250" || 
+        $ccv20: codCardiovascular contains "I251" || 
+        $ccv21: codCardiovascular contains "I252" || 
+        $ccv22: codCardiovascular contains "I702" || 
+        $ccv23: codCardiovascular contains "I708" || 
+        $ccv24: codCardiovascular contains "I709" || 
+        $ccv25: codCardiovascular contains "I739")
+    then
+        paciente.setTieneCardiovasculares(true);
+        //paciente.setMensaje("el paciente debe pasar a diagnostico");
+        modify( paciente ) { setTieneCardiovasculares(true) }
+        System.out.println("Estado ECV al evaluar codigos: " + paciente.getTieneCardiovasculares().toString());
+        //System.out.println("Mensaje:  " + paciente.getMensaje());
+        Thread.sleep(1000);
+    end
+
+
+    rule "Validar Diabetes Gestacional"
+    dialect "mvel"
+    ruleflow-group "valida-diabetes-gestacional"
+    no-loop true
+    when
+        paciente : Paciente( )
+        $codigoc:Paciente($cg1: codDiabetesGestacional contains "O240" || 
+        $cg2: codDiabetesGestacional contains "O241" || 
+        $cg3: codDiabetesGestacional contains "O242" || 
+        $cg4: codDiabetesGestacional contains "O243" || 
+        $cg5: codDiabetesGestacional contains "O244" || 
+        $cg6: codDiabetesGestacional contains "O249" || 
+        $cg7: codDiabetesGestacional contains "P700" || 
+        $cg8: codDiabetesGestacional contains "P701" || 
+        $cg9: codDiabetesGestacional contains "P702")
+        
+    then
+        System.out.println("Rule fired : [" + drools.getRule().getName()+"]");
+        //paciente.setMensaje("el paciente debe pasar a diagnostico");
+        modify( paciente ) { setTieneDiabetesGestacional(true) }
+        System.out.println("Estado ECV al evaluar codigos: " + paciente.getTieneDiabetesGestacional().toString());
+        //System.out.println("Mensaje:  " + paciente.getMensaje());
+        Thread.sleep(1000);
+    end
+
+    rule "Validar ECV"
+    dialect "mvel"
+    ruleflow-group "valida-ecv"
+    no-loop true
+    when
+        paciente : Paciente( )
+        $codigoc:Paciente($cc1: codEcv contains "I630" || 
+        $cc2: codEcv contains "I631" || 
+        $cc3: codEcv contains "I632" || 
+        $cc4: codEcv contains "I633" || 
+        $cc5: codEcv contains "I634" || 
+        $cc6: codEcv contains "I635" || 
+        $cc7: codEcv contains "I638" || 
+        $cc8: codEcv contains "I639" || 
+        $cc9: codEcv contains "I653" || 
+        $cc10: codEcv contains "I658" || 
+        $cc11: codEcv contains "I659" || 
+        $cc12: codEcv contains "I660" || 
+        $cc13: codEcv contains "I661" || 
+        $cc14: codEcv contains "I662" || 
+        $cc15: codEcv contains "I664" || 
+        $cc16: codEcv contains "I668" || 
+        $cc17: codEcv contains "I669" || 
+        $cc18: codEcv contains "I672" || 
+        $cc19: codEcv contains "I693" || 
+        $cc20: codEcv contains "I698")
+    then
+        System.out.println("Rule fired : [" + drools.getRule().getName()+"]");
+        modify( paciente ) { setTieneEcv(true) }
+        modify( paciente ) { setTieneComorbilidades(true) }
+        System.out.println("Estado ECV al evaluar codigos: " + paciente.getTieneComorbilidades().toString());
+        //System.out.println("Mensaje:  " + paciente.getMensaje());
+        Thread.sleep(1000);
+    end
+
+    rule "Validar Falla Cardiaca"
+    dialect "mvel"
+    ruleflow-group "valida-fallaCardiaca"
+    no-loop true
+    when
+        paciente : Paciente( )
+        $codigoc:Paciente($cf1: codFallaCardiaca contains "I500" || 
+        $cf2: codFallaCardiaca contains "I509" || 
+        $cf3: codFallaCardiaca contains "I518" || 
+        $cf4: codFallaCardiaca contains "Y840")
+    then
+        System.out.println("Rule fired : [" + drools.getRule().getName()+"]");
+        modify( paciente ) { setTieneFallaCardiaca(true) }
+        modify( paciente ) { setTieneComorbilidades(true) }
+        System.out.println("Estado Falla Cardiaca al evaluar codigos: " + paciente.getTieneComorbilidades().toString());
+        //System.out.println("Mensaje:  " + paciente.getMensaje());
+        Thread.sleep(1000);
+    end
+
+    rule "Validar RAC"
+    dialect "mvel"
+    ruleflow-group "valida-rac"
+    no-loop true
+    when
+        paciente : Paciente( )
+        $vr:Paciente($rac: rac > 300)
+
+    then
+        System.out.println("Rule fired : [" + drools.getRule().getName()+"]");
+        modify( paciente ) { setTieneComorbilidades(true) }
+        System.out.println("Estado rac: " + paciente.getTieneComorbilidades().toString());
+        //System.out.println("Mensaje:  " + paciente.getMensaje());
+        Thread.sleep(1000);
+    end
+
+    rule "Validar HTA"
+    dialect "mvel"
+    ruleflow-group "valida-hta"
+    no-loop true
+    when
+        paciente : Paciente( )
+        $codigoh:Paciente($ch1: codHta contains "I10X" || 
+        $ch2: codHta contains "I110" || 
+        $ch3: codHta contains "I119" || 
+        $ch4: codHta contains "I120" || 
+        $ch5: codHta contains "I129" || 
+        $ch6: codHta contains "I130" || 
+        $ch7: codHta contains "I131" || 
+        $ch8: codHta contains "I132" || 
+        $ch9: codHta contains "I139" || 
+        $ch10: codHta contains "I150" || 
+        $ch11: codHta contains "I151")
+
+    then
+        System.out.println("Rule fired : [" + drools.getRule().getName()+"]");
+        modify( paciente ) { setTieneHta(true) }
+        System.out.println("Estado HTA: " + paciente.getTieneHta().toString());
+        //System.out.println("Mensaje:  " + paciente.getMensaje());
+        Thread.sleep(1000);
+    end
+
+

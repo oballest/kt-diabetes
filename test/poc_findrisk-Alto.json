@@ -1,0 +1,33 @@
+{  
+    "lookup":"default-stateless-ksession",
+    "commands":[  
+       {  
+          "insert":{  
+             "object":{  
+                "com.myspace.rhdm7_keralty.Paciente":{ 
+                   "edad": 70,
+                   "imc": 35,
+                   "genero": "mujer",
+                   "perimetroAbdominal": 90,
+                   "actividadFisica": false,
+                   "alimentacionSaludable": false,
+                   "medicamentosHipertension": true,
+                   "histGlucosaAlta": true,
+                   "herenciaDiabetesGradoUno": true,
+                   "herenciaDiabetesGradoDos": true
+                }
+             },
+             "out-identifier":"findrisk"
+          }
+       },
+       {  
+          "start-process":{  
+             "processId":"rhdm7_keralty.EvaluacionFindrisk",
+             "parameter":[  
+ 
+             ],
+             "out-identifier":null
+          }
+       }
+    ]
+ }
