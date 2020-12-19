@@ -5,7 +5,7 @@ _El objetivo principal de la PoC es probar el ciclo completo de toma de decision
 
 _Dada la necesidad de automatizar la toma de decisiones para el diagnóstco de Diabetes por parte de Keralty, se diseñó un flujo donde intervienen las siguientes tomas de decisiones: Tamizaje, Test de Findrisk, Diagnóstico por Glicemia en Ayunas, Glicemia a cualquier hora, Hb1Ac, PTOG y fnalmente Diagnóstico de Prediabetes y Diabetes._
 
-Para más detalle en [flow](https://gitlab.com/magdamartinez/rhdm7_keralty/-/tree/master/flow) puedes ver el diagrama.
+Para más detalle este es el diagrama: ![Business Process](https://github.com/mirkhala/kt-diabetes/blob/master/flow/flujo-proceso-diabetes.png?raw=true)
 
 
 ### ¿Dónde probar las reglas? 📋
@@ -96,7 +96,7 @@ _o para **Findrisk Bajo**:_
  }
 ```
 
-Para más detalle en [test](https://gitlab.com/magdamartinez/rhdm7_keralty/-/tree/master/test) puedes ver algunos ejemplos.
+Para más detalle en [test](https://github.com/mirkahala/kt-diabetes/-/tree/master/test) puedes ver algunos ejemplos.
 
 ## ¿Qué se espera? ⚙️
 
@@ -115,9 +115,8 @@ _Los participantes de la PoC fueron:_
 * **Juan Carlos Naranjo** - *Toma de Requisitos* - [jcarlos@redhat.com](jcarlos@redhat.com) - Account Solution Architect
 * **Magda Martínez** - *Diseño de Flujo y Reglas de Negocio* - [magda.martinez@redhat.com](magda.martinez@redhat.com) - Specialist Solution Architect
 
-## Derechos 📄
-
-Esta PoC fue diseñada para uso exclusivo de Keralty. Revisa [LICENSE.md](LICENSE.md) para detalles.
+## Agradecimientos Especiales 🎁
+* **Diego Torres Fuerte** - *Drools* - [dtorresf@redhat.com](dtorresf@redhat.com) - Middleware Delivery
 
 ---
 ⌨️ Creado por [Red Hat.](https://www.redhat.com/)
