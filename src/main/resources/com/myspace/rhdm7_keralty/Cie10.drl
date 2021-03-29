@@ -38,7 +38,6 @@ import com.myspace.rhdm7_keralty.Paciente;
         modify( paciente ) { setTieneCardiovasculares(true) }
         System.out.println("Estado ECV al evaluar codigos: " + paciente.getTieneCardiovasculares().toString());
         //System.out.println("Mensaje:  " + paciente.getMensaje());
-        Thread.sleep(1000);
     end
 
 
@@ -64,7 +63,6 @@ import com.myspace.rhdm7_keralty.Paciente;
         modify( paciente ) { setTieneDiabetesGestacional(true) }
         System.out.println("Estado ECV al evaluar codigos: " + paciente.getTieneDiabetesGestacional().toString());
         //System.out.println("Mensaje:  " + paciente.getMensaje());
-        Thread.sleep(1000);
     end
 
     rule "Validar ECV"
@@ -99,7 +97,6 @@ import com.myspace.rhdm7_keralty.Paciente;
         modify( paciente ) { setTieneComorbilidades(true) }
         System.out.println("Estado ECV al evaluar codigos: " + paciente.getTieneComorbilidades().toString());
         //System.out.println("Mensaje:  " + paciente.getMensaje());
-        Thread.sleep(1000);
     end
 
     rule "Validar Falla Cardiaca"
@@ -118,7 +115,6 @@ import com.myspace.rhdm7_keralty.Paciente;
         modify( paciente ) { setTieneComorbilidades(true) }
         System.out.println("Estado Falla Cardiaca al evaluar codigos: " + paciente.getTieneComorbilidades().toString());
         //System.out.println("Mensaje:  " + paciente.getMensaje());
-        Thread.sleep(1000);
     end
 
     rule "Validar RAC"
@@ -134,7 +130,6 @@ import com.myspace.rhdm7_keralty.Paciente;
         modify( paciente ) { setTieneComorbilidades(true) }
         System.out.println("Estado rac: " + paciente.getTieneComorbilidades().toString());
         //System.out.println("Mensaje:  " + paciente.getMensaje());
-        Thread.sleep(1000);
     end
 
     rule "Validar HTA"
@@ -160,7 +155,6 @@ import com.myspace.rhdm7_keralty.Paciente;
         modify( paciente ) { setTieneHta(true) }
         System.out.println("Estado HTA: " + paciente.getTieneHta().toString());
         //System.out.println("Mensaje:  " + paciente.getMensaje());
-        Thread.sleep(1000);
     end
 
 
